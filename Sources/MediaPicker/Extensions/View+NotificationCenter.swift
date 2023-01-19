@@ -4,9 +4,8 @@
 //
 //  Created by Alexandra Afonasova on 17.10.2022.
 //
-
 import SwiftUI
-
+#if os(iOS)
 extension View {
 
     func onEnteredBackground(perform: @escaping () -> Void) -> some View {
@@ -23,5 +22,20 @@ extension View {
         let publisher = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         return onReceive(publisher) { _ in perform(UIDevice.current.orientation) }
     }
+}
+#elseif os(macOS)
+extension View {
+
+    func onEnteredBackground(perform: @escaping () -> Void) -> some View {
+        self
+    }
+
+    func onEnteredForeground(perform: @escaping () -> Void) -> some View {
+        self
+    }
 
 }
+
+
+
+#endif

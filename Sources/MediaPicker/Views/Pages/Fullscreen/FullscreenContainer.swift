@@ -28,7 +28,9 @@ struct FullscreenContainer: View {
             .ignoresSafeArea()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        #if os(iOS)
         .tabViewStyle(.page(indexDisplayMode: .never))
+        #endif
         .background(theme.main.fullscreenBackground)
         .ignoresSafeArea()
     }

@@ -14,8 +14,10 @@ struct PermissionsActionView: View {
     var body: some View {
         ZStack {
             if showSheet {
+                #if os(iOS)
                 LimitedLibraryPickerProxyView(isPresented: $showSheet)
                     .frame(width: 1, height: 1)
+                #endif
             }
             
             switch action {
@@ -59,6 +61,7 @@ private extension PermissionsActionView {
     }
     
     func goToSettingsButton(text: String) -> some View {
+        #if os(iOS)
         PermissionsErrorView(
             text: text,
             action: {
@@ -69,6 +72,10 @@ private extension PermissionsActionView {
                 }
             }
         )
+        #endif
+        return Button("Open App Settings") {
+            print("[MediaPicker] need to implement Open App Settings for Mac")
+        }
     }
 }
 

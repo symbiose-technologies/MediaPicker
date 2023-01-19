@@ -1,7 +1,7 @@
 //
 //  Created by Alex.M on 06.06.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 
 struct LiveCameraCell: View {
@@ -30,3 +30,4 @@ struct LiveCameraCell: View {
         .onRotate { orientation = $0 }
     }
 }
+#endif

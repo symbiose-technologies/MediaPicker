@@ -4,7 +4,7 @@
 //
 //  Created by Alexandra Afonasova on 18.10.2022.
 //
-
+#if os(iOS)
 import Foundation
 import AVFoundation
 import Combine
@@ -218,3 +218,4 @@ extension CameraViewModel: AVCapturePhotoCaptureDelegate {
         capturedPhotoSubject.send(FileManager.storeToTempDir(data: data))
     }
 }
+#endif

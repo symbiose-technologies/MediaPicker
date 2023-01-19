@@ -4,7 +4,7 @@
 //
 //  Created by Alisa Mylnikova on 12.07.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 import AVKit
 
@@ -35,3 +35,4 @@ struct CameraSelectionCell: View {
         }
     }
 }
+#endif

@@ -1,7 +1,7 @@
 //
 //  Created by Alex.M on 02.06.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 import UIKit
 import PhotosUI
@@ -16,7 +16,6 @@ struct LimitedLibraryPickerProxyView: UIViewControllerRepresentable {
             PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: controller)
             context.coordinator.trackCompletion(in: controller)
         }
-        
         return controller
     }
     
@@ -44,3 +43,4 @@ struct LimitedLibraryPickerProxyView: UIViewControllerRepresentable {
         }
     }
 }
+#endif

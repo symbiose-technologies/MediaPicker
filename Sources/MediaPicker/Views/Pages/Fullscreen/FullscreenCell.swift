@@ -14,7 +14,8 @@ struct FullscreenCell: View {
         VStack {
             if viewModel.isImageSet, let image = viewModel.preview {
                 ZoomableScrollView {
-                    Image(uiImage: image)
+                    Image(universalImg: image)
+//                    Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
                 }

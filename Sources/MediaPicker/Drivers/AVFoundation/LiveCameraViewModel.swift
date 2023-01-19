@@ -1,7 +1,7 @@
 //
 //  Created by Alex.M on 07.06.2022.
 //
-
+#if os(iOS)
 import Foundation
 import AVFoundation
 import CoreImage
@@ -59,3 +59,4 @@ class LiveCameraViewModel: NSObject, ObservableObject {
         AVCaptureDevice.default(for: .video)
     }
 }
+#endif

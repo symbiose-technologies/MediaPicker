@@ -1,7 +1,7 @@
 //
 //  Created by Alex.M on 31.05.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 import Photos
 
@@ -111,3 +111,4 @@ struct CameraView: View {
     }
 
 }
+#endif

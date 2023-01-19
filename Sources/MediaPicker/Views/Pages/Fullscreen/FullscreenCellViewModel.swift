@@ -5,14 +5,13 @@
 import Foundation
 import Combine
 import AVKit
-import UIKit.UIImage
 
 @MainActor
 final class FullscreenCellViewModel: ObservableObject {
     
     let media: AssetMediaModel
     
-    @Published var preview: UIImage? = nil
+    @Published var preview: UniversalImage? = nil
     @Published var player: AVPlayer? = nil
     @Published var isImageSet = false
     var imageCancellable: AnyCancellable?

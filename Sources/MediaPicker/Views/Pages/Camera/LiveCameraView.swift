@@ -4,7 +4,7 @@
 //
 //  Created by Alexandra Afonasova on 18.10.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 import AVFoundation
 
@@ -65,3 +65,4 @@ final class LiveVideoCaptureView: UIView {
     }
 
 }
+#endif

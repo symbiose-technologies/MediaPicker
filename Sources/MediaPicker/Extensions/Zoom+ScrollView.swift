@@ -4,8 +4,8 @@
 //
 //  Created by Ruslan on 19.07.2022.
 //
-
 import SwiftUI
+#if os(iOS)
 
 struct ZoomableScrollView<Content: View>: UIViewRepresentable {
     private var content: Content
@@ -55,3 +55,20 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
         }
     }
 }
+#elseif os(macOS)
+struct ZoomableScrollView<Content: View>: View {
+    
+    private var content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    
+    var body: some View {
+        content
+    }
+}
+
+
+#endif
+

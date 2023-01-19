@@ -49,11 +49,13 @@ private extension AlbumView {
                         .font(.title3)
                 } else {
                     MediasGrid(viewModel.medias) {
+                        #if os(iOS)
                         if shouldShowCamera && permissionsService.cameraAction == nil {
                             LiveCameraCell {
                                 showingCamera = true
                             }
                         }
+                        #endif
                     } content: { media in
                         let index = selectionService.index(of: media)
                         SelectableView(selected: index) {

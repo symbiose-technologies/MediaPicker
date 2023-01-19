@@ -9,12 +9,11 @@ import Combine
 @MainActor
 final class MediaPickerViewModel: ObservableObject {
     
-#if os(iOS)
     @Published var showingCamera = false
     @Published var showingCameraSelection = false
     @Published var showingExitCameraConfirmation = false
     @Published var pickedMediaUrl: URL?
-#endif
+
     @Published var albums: [AlbumModel] = []
     let defaultAlbumsProvider = DefaultAlbumsProvider()
     private let watcher = PhotoLibraryChangePermissionWatcher()

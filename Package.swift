@@ -7,7 +7,7 @@ let package = Package(
     name: "MediaPicker",
     platforms: [
         .iOS(.v15),
-        .macOS(.v11)
+        .macOS(.v12)
     ],
     products: [
         .library(

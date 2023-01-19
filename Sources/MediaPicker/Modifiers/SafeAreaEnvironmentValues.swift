@@ -4,10 +4,10 @@
 //
 //  Created by Alexandra Afonasova on 18.10.2022.
 //
-
-import UIKit
 import SwiftUI
 
+#if os(iOS)
+import UIKit
 extension UIApplication {
     var keyWindow: UIWindow? {
         connectedScenes
@@ -46,3 +46,4 @@ private extension UIEdgeInsets {
         EdgeInsets(top: top, leading: left, bottom: bottom, trailing: right)
     }
 }
+#endif

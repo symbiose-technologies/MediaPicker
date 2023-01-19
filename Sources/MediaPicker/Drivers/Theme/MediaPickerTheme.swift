@@ -24,10 +24,11 @@ extension MediaPickerTheme {
         public let text: Color
         public let background: Color
         public let fullscreenBackground: Color
-
-        public init(text: Color = Color(uiColor: .label),
-                    background: Color = Color(uiColor: .systemBackground),
+        
+        public init(text: Color = .primary,
+                    background: Color = .gray,
                     fullscreenBackground: Color = .black) {
+            
             self.text = text
             self.background = background
             self.fullscreenBackground = fullscreenBackground

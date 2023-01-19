@@ -4,7 +4,7 @@
 //
 //  Created by Alisa Mylnikova on 12.07.2022.
 //
-
+#if os(iOS)
 import SwiftUI
 
 struct CameraSelectionContainer: View {
@@ -68,3 +68,4 @@ struct CameraSelectionContainer: View {
         .background(theme.main.fullscreenBackground)
     }
 }
+#endif

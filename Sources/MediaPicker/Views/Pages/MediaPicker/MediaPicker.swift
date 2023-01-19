@@ -99,6 +99,7 @@ public struct MediaPicker: View {
                     }
                 }
             }
+            #if os(iOS)
             .fullScreenCover(isPresented: $viewModel.showingCameraSelection) {
                 CameraSelectionContainer(viewModel: viewModel, showingPicker: $isPresented)
                     .confirmationDialog("", isPresented: $viewModel.showingExitCameraConfirmation, titleVisibility: .hidden) {
@@ -120,6 +121,7 @@ public struct MediaPicker: View {
                     deleteAllButton()
                 }
             }
+            #endif
         }
         .onChange(of: viewModel.albums) {
             self.albums = $0.map{ $0.toAlbum() }
@@ -150,12 +152,14 @@ public struct MediaPicker: View {
     }
 
     func cameraSheet(didTakePicture: @escaping ()->()) -> some View {
-#if targetEnvironment(simulator)
-        CameraStubView(isPresented: $viewModel.showingCamera)
-#elseif os(iOS)
-        CameraView(viewModel: viewModel, didTakePicture: didTakePicture)
-            .ignoresSafeArea()
-#endif
+        return Group {
+            #if targetEnvironment(simulator)
+                        CameraStubView(isPresented: $viewModel.showingCamera)
+            #elseif os(iOS)
+                        CameraView(viewModel: viewModel, didTakePicture: didTakePicture)
+                            .ignoresSafeArea()
+            #endif
+        }
     }
 
     var defaultHeaderView: some View {
@@ -173,7 +177,7 @@ public struct MediaPicker: View {
                     .tag(1)
             }
             .pickerStyle(SegmentedPickerStyle())
-            .frame(maxWidth: UIScreen.main.bounds.width / 2)
+//            .frame(maxWidth: UIScreen.main.bounds.width / 2)
             .onChange(of: internalPickerModeSelection) { newValue in
                 internalPickerMode = newValue == 0 ? .photos : .albums
             }

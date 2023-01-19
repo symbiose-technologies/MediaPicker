@@ -7,10 +7,6 @@ import Combine
 import Photos
 import UniformTypeIdentifiers
 
-#if os(iOS)
-import UIKit.UIImage
-import UIKit.UIScreen
-#endif
 
 extension PHAsset {
     actor RequestStore {
@@ -133,12 +129,12 @@ extension CGImage {
     }
 }
 
-#if os(iOS)
 extension PHAsset {
 
-    func image(size: CGSize) -> AnyPublisher<UIImage?, Never> {
-        let requestSize = CGSize(width: size.width * UIScreen.main.scale, height: size.height * UIScreen.main.scale)
-        let passthroughSubject = PassthroughSubject<UIImage?, Never>()
+    func image(size: CGSize) -> AnyPublisher<UniversalImage?, Never> {
+        let screenScale = UniversalScreen.getScale()
+        let requestSize = CGSize(width: size.width * screenScale, height: size.height * screenScale)
+        let passthroughSubject = PassthroughSubject<UniversalImage?, Never>()
         var requestID: PHImageRequestID?
         
         let result = passthroughSubject
@@ -190,4 +186,3 @@ extension PHAsset {
         }
     }
 }
-#endif

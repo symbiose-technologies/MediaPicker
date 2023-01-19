@@ -4,7 +4,7 @@
 //
 //  Created by Alexandra Afonasova on 20.10.2022.
 //
-
+#if os(iOS)
 import CoreMotion
 import UIKit
 
@@ -48,3 +48,14 @@ final class MotionManager {
     }
 
 }
+#else
+final class MotionManager {
+    init() {
+        
+    }
+    
+}
+
+
+
+#endif
