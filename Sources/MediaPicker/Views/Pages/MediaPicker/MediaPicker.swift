@@ -60,7 +60,7 @@ public struct MediaPicker: View {
     }
 
     public var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) {
                 if showingDefaultHeader {
                     defaultHeaderView
@@ -123,6 +123,7 @@ public struct MediaPicker: View {
             }
             #endif
         }
+        
         .onChange(of: viewModel.albums) {
             self.albums = $0.map{ $0.toAlbum() }
         }
